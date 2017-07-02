@@ -1,0 +1,16 @@
+service: travis-webhook
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  helloWorld:
+    handler: handler.handleWebhook
+    events:
+      - http:
+          path: hello-world
+          method: post
+          cors: true
+
+# TODO: webhook env var /api/webhooks/328649814319431680/cQ7r7OAy6PSls_DQrd35M1ExL5KhMMMG8AXyU9Qj5ggFmNPApAUHKnK0gVmKlwyxDPrh

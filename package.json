@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "humanize-duration": "^3.10.0"
+  }
+}
