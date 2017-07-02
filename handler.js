@@ -5,7 +5,7 @@ var crypto = require('crypto');
 var querystring = require('querystring');
 var humanize = require('humanize-duration');
 
-module.exports.handleWebhook = (event, context, callback) => {
+module.exports.webhook = (event, context, callback) => {
     var payload = JSON.parse(querystring.parse(event.body).payload);
 
     // parse travis payload into discord webhook format
@@ -30,7 +30,7 @@ module.exports.handleWebhook = (event, context, callback) => {
     };
 
     // change color based on build status
-    if (payload.status == 0) {
+    if (payload.status === 0) {
         requestData.embeds[0].color = '65280';
     } else {
         requestData.embeds[0].color = '16711680';
@@ -40,7 +40,7 @@ module.exports.handleWebhook = (event, context, callback) => {
     var options = {
         host: 'discordapp.com',
         port: 443,
-        path: process.env.webhook,
+        path: process.env.WEBHOOK,
         headers: { 'Content-Type': 'application/json' },
         method: "POST"
     };
