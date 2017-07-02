@@ -10,6 +10,8 @@ module.exports.webhook = (event, context, callback) => {
 
     // parse travis payload into discord webhook format
     var requestData = {
+        username: "Travis",
+        avatar_url: "https://cdn.travis-ci.org/images/logos/TravisCI-Mascot-1-20feeadb48fc2492ba741d89cb5a5c8a.png",
         embeds: [{
             type: "rich",
             author: {
